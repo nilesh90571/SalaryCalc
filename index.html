@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+</head>
+<script>
+        function docompute(){
+            
+         var basicsalary=document.getElementById("basicsalary").value;
+         var Hra=basicsalary*0.30;
+         var Da=basicsalary*0.10;
+         var Ta=basicsalary*0.10;
+         var pf=basicsalary*0.05;        
+         pf=pf*2;
+        var Gs=parseInt(basicsalary)+Hra+Da+Ta-pf;
+        var tax;
+        if(Gs<=300000)
+            tax=Gs*0.10;
+        else if(Gs>300000 && Gs<=500000)
+            tax=Gs*0.20;
+        else 
+            tax=Gs*0.10;          
+        var Ns=Gs-tax;
+        
+         document.getElementById('hra').innerText=Hra;
+         document.getElementById('da').innerText=Da;
+         document.getElementById('Ta').innerText=Ta;
+         document.getElementById('Pf').innerText=pf;
+         document.getElementById('Gs').innerText=Gs;
+         document.getElementById('Tax').innerText=tax;
+         document.getElementById('Ns').innerText=Ns;
+    }
+    </script>
+<body>
+    <label for="">basic salary</label>
+    <input type="text" id="basicsalary" placeholder="enter salary">
+    <button onclick="docompute()">compute</button>
+    <fieldset>
+        <legend>SALARY DETAILS</legend>
+        <p>Hra<span id ="hra"></span></p>
+        <p>Da<span id='da'></span></p>
+        <p>Ta<span id='Ta'></span></p>
+        <p>Gs<span id='Gs'></span></p>
+        <p>Ns<span id='Ns'></span></p>
+        <p>Pf<span id='Pf'></span></p>
+        <p>Tax<span id='Tax'></span></p>
+    </fieldset>
+</body>
+</html>
